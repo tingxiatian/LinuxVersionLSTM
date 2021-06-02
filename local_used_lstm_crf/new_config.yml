@@ -1,0 +1,31 @@
+data_params:
+  path_result: ./data/sample_test_result.txt
+  path_test: ./data/sample_test.txt
+  path_train: data/format_file.txt
+  sep: table
+  voc_params:
+    f1: {min_count: 0, path: data/voc/f1.voc.pkl}
+    label: {min_count: 0, path: data/voc/label.voc.pkl}
+model: NER
+model_params:
+  batch_size: 64
+  bilstm_params: {num_layers: 1, num_units: 256}
+  clip: 10
+  dev_size: 0.1
+  dropout_rate: 0.5
+  embed_params:
+    f1:
+      dropout_rate: 0.3
+      path: data/embed/f1_embed.pkl
+      path_pre_train: ""
+      shape: [5145, 64]
+  feature_names: [f1]
+  l2_rate: 0.01
+  learning_rate: 0.002
+  max_patience: 20
+  nb_classes: 5
+  nb_epoch: 200
+  path_model: 'model'
+  rnn_unit: lstm
+  sequence_length: 200
+  use_crf: true
